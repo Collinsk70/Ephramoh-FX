@@ -28,6 +28,7 @@ header h1 {
   color: gold;
 }
 
+/* Base nav links */
 nav a {
   color: gold;
   margin: 0 1rem;
@@ -38,6 +39,50 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+
+/* Desktop nav */
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Hamburger icon - hidden by default */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  color: gold;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #000;
+    width: 100%;
+    padding: 1rem 2rem;
+    z-index: 999;
+  }
+
+  nav.nav-visible {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+}
+
+
 
 .hero {
   height: 100vh;
@@ -228,4 +273,57 @@ footer {
 .testimonial-track::after {
   content: '';
   flex: 0 0 10%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid gold;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-form label {
+  color: gold;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: #000;
+  border: 1px solid gold;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: gold;
+  font-size: 1rem;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-form button {
+  background-color: gold;
+  color: black;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #d4af37;
+}
+
+.contact-info {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #ccc;
 }

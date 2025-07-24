@@ -12,15 +12,33 @@
 
 </head>
 <body>
-  <header>
-    <h1>Ephramoh FX</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>Ephramoh FX</h1>
+
+  <div class="hamburger" id="hamburger">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav id="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-hidden');
+    navLinks.classList.toggle('nav-visible');
+  });
+</script>
+
+
 
   <div class="hero" id="home">
     <h2>Welcome to Ephramoh FX<br />Where Vision Meets Precision</h2>
@@ -104,12 +122,27 @@ Whether you're exchanging currency for travel, business, investment, or remittan
 
 
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: ckarweru69@gmail.com</p>
-    <p>Phone: +254 769 715 692</p>
-    <p>Location: Westlands, Nairobi</p>
-  </section>
+ <section id="contact">
+  <h2>Contact Us</h2>
+
+  <form class="contact-form" action="https://formsubmit.co/ckarweru69@gmail.com" method="POST">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label for="name">Enter your Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+    <label for="email">Enter your Email</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+    <label for="query">Enter your Query</label>
+    <textarea id="query" name="message" rows="5" placeholder="Type your message..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+</section>
+
 
   <footer>
     &copy; 2025 Ephramoh FX. All Rights Reserved.
