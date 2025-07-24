@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ephramoh FX</title>
+<link rel="stylesheet" href="style.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+</head>
+<body>
+  <header>
+    <h1>Ephramoh FX</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="home">
+    <h2>Welcome to Ephramoh FX<br />Where Vision Meets Precision</h2>
+  </div>
+
+  
+<section id="about">
+  <h2 class="fade-in">About Us</h2>
+  <p class="fade-in">
+Ephramoh FX is a trusted and dynamic foreign exchange service provider based in Kenya, with nearly five years of industry experience. We pride ourselves on delivering competitive exchange rates, fast and reliable transactions, and secure currency trading solutions tailored to meet the needs of both individual and institutional clients.
+  </br>
+At Ephramoh FX, we specialize in a wide range of foreign exchange services, including retail currency exchange, institutional forex trading, and cross-border money transfers. Our mission is to empower our clients—whether travelers, businesses, or financial institutions—to navigate the complexities of the global currency markets with confidence, clarity, and precision.
+<br>
+With a deep understanding of global financial trends and a commitment to transparency, we ensure our clients receive exceptional value and trustworthy support at every stage of their exchange journey. Our experienced team is dedicated to maintaining the highest standards of customer service, regulatory compliance, and technological efficiency.
+<br>
+Whether you're exchanging currency for travel, business, investment, or remittance purposes, Ephramoh FX is your reliable partner in foreign exchange—where speed meets security and expertise meets integrity.  </p>
+</section>
+
+
+<section id="services">
+  <h2 class="right-align">Our Forex Services</h2>
+  <div class="services">
+    <div class="card animated-card delay-0">
+      <i class="fas fa-chart-line fa-2x gold-icon"></i>
+      <h3>Live Forex Trading</h3>
+      <p>Real-time trading sessions with expert strategies and insights.</p>
+    </div>
+    <div class="card animated-card delay-1">
+      <i class="fas fa-university fa-2x gold-icon"></i>
+      <h3>Currency Exchange</h3>
+      <p>Fast and secure currency exchange with competitive rates.</p>
+    </div>
+    <div class="card animated-card delay-2">
+      <i class="fas fa-chalkboard-teacher fa-2x gold-icon"></i>
+      <h3>Training & Mentorship</h3>
+      <p>Comprehensive forex education and mentorship for all levels.</p>
+    </div>
+    <div class="card animated-card delay-0">
+  <i class="fas fa-signal fa-2x gold-icon"></i>
+  <h3>Market Signals</h3>
+  <p>Get accurate daily forex signals based on technical and fundamental analysis.</p>
+</div>
+<div class="card animated-card delay-1">
+  <i class="fas fa-laptop-code fa-2x gold-icon"></i>
+  <h3>Algorithmic Trading</h3>
+  <p>Automated trading strategies designed to optimize performance and reduce risk.</p>
+</div>
+<div class="card animated-card delay-2">
+  <i class="fas fa-headset fa-2x gold-icon"></i>
+  <h3>24/7 Client Support</h3>
+  <p>Dedicated support team available around the clock to assist with your forex needs.</p>
+</div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <h2 class="center gold-text">What Our Clients Say</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-track">
+      <div class="testimonial-card">
+        <p>“Ephramoh FX helped us streamline our currency conversions across multiple countries.”</p>
+        <strong>- John, CFO</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>“The forex signals from Ephramoh FX have been highly accurate and reliable.”</p>
+        <strong>- Mercy, Private Trader</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>“Incredible customer service! Fast, efficient, and transparent forex transactions.”</p>
+        <strong>- Brian, Import Manager</strong>
+      </div>
+    </div>
+  </div>
+<div class="testimonial-dots">
+  <span class="dot active-dot" data-index="0"></span>
+  <span class="dot" data-index="1"></span>
+  <span class="dot" data-index="2"></span>
+</div>
+
+</section>
+
+
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: ckarweru69@gmail.com</p>
+    <p>Phone: +254 769 715 692</p>
+    <p>Location: Westlands, Nairobi</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Ephramoh FX. All Rights Reserved.
+  </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Observe all animated cards separately
+    document.querySelectorAll('.animated-card').forEach(card => observer.observe(card));
+  });
+</script>
+
+
+<script>
+  const container = document.querySelector('.testimonial-container');
+  const track = document.querySelector('.testimonial-track');
+  const cards = document.querySelectorAll('.testimonial-card');
+  const dots = document.querySelectorAll('.dot');
+
+  function updateActiveCard() {
+    const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    // Update card styles
+    cards.forEach((card, i) =>
+      card.classList.toggle('active', i === closestIndex)
+    );
+
+    // Update dot styles
+    dots.forEach((dot, i) =>
+      dot.classList.toggle('active-dot', i === closestIndex)
+    );
+  }
+
+  container.addEventListener('scroll', () => {
+    requestAnimationFrame(updateActiveCard);
+  });
+
+  // Enable dot click navigation
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.dataset.index);
+      const card = cards[index];
+      container.scrollTo({
+        left: card.offsetLeft - container.offsetWidth / 2 + card.offsetWidth / 2,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Initial state
+  window.addEventListener('load', updateActiveCard);
+</script>
+
+
+
+</body>
+</html>
