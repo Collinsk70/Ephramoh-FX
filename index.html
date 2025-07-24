@@ -128,7 +128,6 @@ Whether you're exchanging currency for travel, business, investment, or remittan
   <form class="contact-form" id="contactForm">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="">
 
     <label for="name">Enter your Name</label>
     <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -141,8 +140,6 @@ Whether you're exchanging currency for travel, business, investment, or remittan
 
     <button type="submit">Send Message</button>
   </form>
-
-  <p id="formSuccess" style="display: none; color: gold; margin-top: 1rem;">Your message has been sent successfully!</p>
 </section>
 
 <script>
@@ -163,7 +160,7 @@ Whether you're exchanging currency for travel, business, investment, or remittan
       });
 
       if (response.ok) {
-        document.getElementById('formSuccess').style.display = 'block';
+        alert("Your message has been sent successfully!");
         form.reset();
       } else {
         alert("Something went wrong. Please try again.");
