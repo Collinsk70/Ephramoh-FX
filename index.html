@@ -122,12 +122,13 @@ Whether you're exchanging currency for travel, business, investment, or remittan
 
 
 
- <section id="contact">
+<section id="contact">
   <h2>Contact Us</h2>
 
-  <form class="contact-form" action="https://formsubmit.co/d6336f5cd7693523d684cbb269a9a22f" method="POST">
+  <form class="contact-form" id="contactForm">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="">
 
     <label for="name">Enter your Name</label>
     <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -141,7 +142,39 @@ Whether you're exchanging currency for travel, business, investment, or remittan
     <button type="submit">Send Message</button>
   </form>
 
+  <p id="formSuccess" style="display: none; color: gold; margin-top: 1rem;">Your message has been sent successfully!</p>
 </section>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const submitURL = "https://formsubmit.co/ajax/d6336f5cd7693523d684cbb269a9a22f";
+
+    try {
+      const response = await fetch(submitURL, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        document.getElementById('formSuccess').style.display = 'block';
+        form.reset();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submit error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  });
+</script>
+
 
 
   <footer>
