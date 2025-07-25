@@ -12,14 +12,16 @@
 
 </head>
 <body>
-<header>
-  <h1>PrimeTrades Markets</h1>
+  <header>
+  <div class="logo-container">
+    <img src="logo.png" alt="PrimeTrades Markets Logo" class="logo">
+  </div>
 
   <div class="hamburger" id="hamburger">
     <i class="fas fa-bars"></i>
   </div>
 
-  <nav id="nav-links">
+  <nav id="nav-links" class="nav-hidden">
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#testimonials">Testimonials</a>
@@ -27,6 +29,22 @@
   </nav>
 </header>
 
+<style>
+/* Logo container */
+.logo-container {
+  flex: 1 1 auto; /* allow it to grow, shrink if needed */
+  max-width: 100px; /* you can increase this to make it larger */
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  max-height: 150px; /* adjust for visual preference */
+  object-fit: contain;
+}
+
+  
+</style>
 
 <script>
   const hamburger = document.getElementById('hamburger');
@@ -37,6 +55,7 @@
     navLinks.classList.toggle('nav-visible');
   });
 </script>
+
 
 
 
